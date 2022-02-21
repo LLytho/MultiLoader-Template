@@ -1,6 +1,8 @@
-package com.example.examplemod.platform.services;
+package com.github.llytho.examplemod.api.core;
 
-public interface IPlatformHelper {
+public interface IPlatform {
+
+    IPlatform INSTANCE = ExampleModAPI.loadService(IPlatform.class);
 
     /**
      * Gets the name of the current platform

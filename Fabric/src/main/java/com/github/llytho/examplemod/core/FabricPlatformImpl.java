@@ -1,9 +1,9 @@
-package com.example.examplemod.platform;
+package com.github.llytho.examplemod.core;
 
-import com.example.examplemod.platform.services.IPlatformHelper;
+import com.github.llytho.examplemod.api.core.IPlatform;
 import net.fabricmc.loader.api.FabricLoader;
 
-public class FabricPlatformHelper implements IPlatformHelper {
+public class FabricPlatformImpl implements IPlatform {
 
     @Override
     public String getPlatformName() {
@@ -12,13 +12,11 @@ public class FabricPlatformHelper implements IPlatformHelper {
 
     @Override
     public boolean isModLoaded(String modId) {
-
         return FabricLoader.getInstance().isModLoaded(modId);
     }
 
     @Override
     public boolean isDevelopmentEnvironment() {
-
         return FabricLoader.getInstance().isDevelopmentEnvironment();
     }
 }

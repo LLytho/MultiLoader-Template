@@ -1,6 +1,7 @@
-package com.example.examplemod;
+package com.github.llytho.examplemod;
 
-import com.example.examplemod.platform.Services;
+import com.github.llytho.examplemod.api.core.ExampleModAPI;
+import com.github.llytho.examplemod.api.core.IPlatform;
 import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
@@ -18,8 +19,10 @@ public class CommonClass {
     // invoked from a mod loader specific project like Forge or Fabric.
     public static void init() {
 
-        Constants.LOG.info("Hello from Common init on {}! we are currently in a {} environment!", Services.PLATFORM.getPlatformName(), Services.PLATFORM.isDevelopmentEnvironment() ? "development" : "production");
-        Constants.LOG.info("Diamond Item >> {}", Registry.ITEM.getKey(Items.DIAMOND));
+        ExampleModAPI.LOG.info("Hello from Common init on {}! we are currently in a {} environment!",
+            IPlatform.INSTANCE.getPlatformName(),
+            IPlatform.INSTANCE.isDevelopmentEnvironment() ? "development" : "production");
+        ExampleModAPI.LOG.info("Diamond Item >> {}", Registry.ITEM.getKey(Items.DIAMOND));
     }
 
     // This method serves as a hook to modify item tooltips. The vanilla game
